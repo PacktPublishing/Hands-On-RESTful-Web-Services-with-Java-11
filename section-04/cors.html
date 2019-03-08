@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>CORS Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div id="content"></div>
+    <script>
+        const main = async () => {
+            const todos = await fetch('http://localhost:8080/todos', { headers: { Authorization: 'secret_from_database_2' }});
+            document.getElementById('content').innerText = await todos.text();
+        };
+        main();
+    </script>
+</body>
+
+</html>
